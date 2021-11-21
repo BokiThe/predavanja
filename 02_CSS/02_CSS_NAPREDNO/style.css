@@ -1,0 +1,58 @@
+
+.crveni_paragraf{
+    color:red;
+}
+
+.desno_poravnanje{
+    text-align:right;
+}
+/* Vise elemenata sa istim svojistvom */
+
+h3,h4{
+    color:orange;
+}
+
+.drugi, #treci {
+    background-color:yellow;
+}
+
+/* prioriteti:
+selector < clasa < id
+*/
+
+li {
+    color:green;
+}
+
+.kurs{
+    color:blue;
+}
+
+#js{
+    color:red;
+}
+/* selektovanje svih paragrafa unutar div elementa */
+div p {
+    text-decoration: underline;
+}
+
+div .podparagraf {
+    font-weight: bolder;
+}
+/* selektovanje direktnih potomaka */
+#divizija>p {
+    font-family:'Courier New', Courier, monospace;
+}
+ /* svaki treci */
+ol li:nth-child(3n){
+   font-style: italic; 
+}
+/* svaki u ol 3 */
+ol li:nth-child(3){
+    color:red;
+ }
+
+ /* svaki neparni */
+ ol li:nth-child(odd){
+   background-color: yellow;
+ }

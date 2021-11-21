@@ -1,0 +1,28 @@
+body{
+    background-color:burlywood;
+}
+
+h1 {
+    color: indianred;
+    text-align: center;
+}
+
+img {
+    border: 1px double green;
+}
+
+.paragrafi{
+    color: green;
+    font-family:'Courier New', Courier, monospace;
+}
+
+#paragraf a{
+    text-decoration: none;
+    color:red;
+
+}
+
+#link1:hover{
+    color:green;
+}
+
