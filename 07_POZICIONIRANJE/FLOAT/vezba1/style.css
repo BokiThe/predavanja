@@ -1,0 +1,36 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+}
+
+nav {
+    /* width: 100%; */
+    overflow:hidden;
+    background-color: black;
+}
+ul{
+    list-style-type: none;
+    padding:0;
+    /* border:1px solid gray; */
+}
+
+
+li{
+float:left;
+width: 25%;
+border:1px solid gray;
+height: 30px;
+position:relative;
+}
+nav ul a{
+text-decoration: none;
+color: white;
+position:absolute;
+top:50%;
+left:50%;
+transform: translate(-50%,-50%);
+}
+
+ul li:hover{
+    background-color: red;
+}
