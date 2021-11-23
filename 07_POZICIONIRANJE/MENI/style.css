@@ -1,0 +1,71 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+/* horizontalni meni */
+nav {
+    position: fixed;
+    top:0;
+    width: 100%;
+}
+  nav ul{
+    list-style-type: none;
+    overflow: hidden;
+  }  
+  nav ul li{
+    float: left;
+    background-color: darkgray; 
+    border: 2px solid blue;
+    width: 25%;
+    text-align: center;
+}
+
+nav ul li a{
+    text-decoration: none;
+    color:white;
+    font-size: 18px;
+    display: block;
+    padding: 10px 0;
+}
+nav ul li a:hover{
+    background-color: red;
+}
+/* padajuci menu */
+
+.submenu{
+    display: none;
+}
+
+.dropdown:hover .submenu{
+    display: block;
+}
+/* Vertikalni meni */
+footer{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+footer ul{
+    overflow:hidden;
+    list-style-type: none;
+}
+
+
+footer ul li{
+    width: 25%;
+    background-color: wheat;
+}
+
+footer ul li a{
+    display: block;
+    text-decoration: none;
+    color:red;
+    padding: 10px 0px 10px 5px;
+}
+footer ul li a:hover{
+    background-color: red;
+    color:white
+}
+
