@@ -90,6 +90,10 @@ nav ul li a:hover{
     font-size: 20px;
     padding: 10px;
 }
+.sekcija ul li  a:hover{
+    background-color: blue;
+    color: white;
+}
 
 /* FORMA */
 .sekcija h3{
@@ -100,8 +104,8 @@ nav ul li a:hover{
     
 }
 
-.sekcija input,textarea{
-    border-radius: 5px;
+input[type="email"]{
+    height: 30px;
 }
 
 input[type="email"]::placeholder{
