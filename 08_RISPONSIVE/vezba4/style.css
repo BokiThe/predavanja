@@ -1,0 +1,221 @@
+/* Inicijalna podesavanja */
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+.row{
+    width: 100%;
+    overflow: hidden;
+}
+[class*="col-"]{
+    float:left
+}
+
+
+/* Univerzalna podesavanja */
+
+a{
+    text-decoration: none;
+    display: block;
+}
+
+ul{
+    list-style-type: none;
+}
+div{
+    padding: 5px 0;
+}
+
+/* HEADER */
+
+header{
+    text-align: center;
+    background-color:white;
+    color:blue;
+    font-weight: bolder;
+    font-size: 40px;
+    padding: 5px 0;
+}
+
+/* NAV */
+
+
+
+nav{
+    background-color: blue;    
+}
+nav img{
+    padding: 0px 10px;
+}
+nav ul{
+    text-align: center;
+}
+
+
+nav ul li a {
+    color: white;
+    padding: 10px 10px 15px 10px;
+    font-size:20px;
+}
+
+nav ul li a:hover{
+    background-color: white;
+    color:blue;
+}
+
+/* CONTENT SEKCIJA */
+/* univerzalna podesavanja */
+.sekcija{
+    padding:10px;
+}
+.sekcija ul{
+    clear: both;
+    padding-top: 10px;
+}
+
+/* lista ispod slike */
+
+.sekcija a{
+    color:black;
+    font-size: 20px;
+    font-weight: bold;
+}
+.sekcija ul li  a{
+    background-color: lightgray ;
+    color: black;
+    border: 2px solid white;
+    font-size: 20px;
+    padding: 10px;
+}
+
+/* FORMA */
+.sekcija h3{
+    padding: 10px 0px;
+}
+.sekcija form div{
+    clear: both;
+    
+}
+
+.sekcija input,textarea{
+    border-radius: 5px;
+}
+
+input[type="email"]::placeholder{
+    font-size: 15px;
+    padding: 10px;
+}
+
+input[type="button"]{
+    background-color: blue;
+    color:white;
+}
+
+form fieldset{
+    border:none;
+}
+
+/* *************
+**********
+******
+media queries 
+******
+***********
+***************/
+/* mobile uredjaji */
+
+@media only screen and  (max-width:600px) {
+    [class*="col-"]{
+        width: 100%;
+    }
+
+    nav ul li{
+        border:1px solid gray;
+    }
+    .logo{
+        width: 50%;
+    }
+}
+/* tablet uredjaji */
+
+/* @media only screen and (max-width:999px) and (min-width:601px) {
+.col-t-1{
+    width: 8.33%;
+}
+.col-t-2{
+    width: 16.66%;
+}
+.col-t-3{
+    width: 25%;
+}
+.col-t-4 {
+    width: 33.33%;
+}
+.col-t-5 {
+    width: 41.66%;
+}
+.col-t-6 {
+    width: 50%;
+}
+.col-t-7 {
+    width: 58.33%;
+}
+.col-t-8 {
+    width: 66.66%;
+}
+.col-t-9 {
+    width: 75%;
+}
+.col-t-10 {
+    width: 83.33%;
+}
+.col-t-11 {
+    width: 91.66%;
+}
+.col-t-12 {
+    width: 100%;
+}
+} */
+/* desktop uredjaji */
+
+@media only screen and (min-width:1000px){
+.col-1{
+width: 8.33%;
+}
+.col-2{
+width: 16.66%;
+}
+.col-3{
+width: 25%;
+}
+.col-4 {
+width: 33.33%;
+}
+.col-5 {
+width: 41.66%;
+}
+.col-6 {
+width: 50%;
+}
+.col-7 {
+width: 58.33%;
+}
+.col-8 {
+width: 66.66%;
+}
+.col-9 {
+width: 75%;
+}
+.col-10 {
+width: 83.33%;
+}
+.col-11 {
+width: 91.66%;
+}
+.col-12 {
+width: 100%;
+}
+}

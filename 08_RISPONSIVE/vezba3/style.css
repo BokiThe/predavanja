@@ -41,11 +41,16 @@ nav ul li{
     border: 1px solid aqua;
     background-color:#44e4e4 ;
     padding: 10px;
+    overflow: hidden;
 }
 nav ul li a{
     display: block;
     text-decoration: none;
     color: black;
+}
+
+nav ul li a:hover{
+    background-color: aqua;
 }
 
 
