@@ -72,4 +72,6 @@ let kolikoEura = kolikoDolara / euroDolar;
 console.log("Nakon razmene imate " + kolikoDolara + " dolara");
 console.log("Nakon razmene imate " + kolikoEura + " eura");
 
+//
+
 

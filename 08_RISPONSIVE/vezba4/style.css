@@ -44,7 +44,7 @@ header{
 
 
 
-nav{
+nav {
     background-color: blue;    
 }
 nav img{
@@ -66,6 +66,29 @@ nav ul li a:hover{
     color:blue;
 }
 
+.dropdown div{
+    display: none;
+  
+}
+
+.dropdown:hover div{
+    position: absolute;
+    background-color: blue;
+    color: white;
+    display: block;
+    border: 1px solid gray;
+    text-align: center;
+    width: 118px;
+}
+
+.dropdown:hover div a{
+    border: 1px solid gray;
+}
+
+
+/* .dropdown:hover div a{
+   
+} */
 /* CONTENT SEKCIJA */
 /* univerzalna podesavanja */
 .sekcija{
@@ -122,6 +145,8 @@ form fieldset{
     border:none;
 }
 
+
+
 /* *************
 **********
 ******
@@ -141,6 +166,11 @@ media queries
     }
     .logo{
         width: 50%;
+    }
+    .dropdown:hover div{
+        position: relative;
+       display:block;
+       width: 100%;
     }
 }
 /* tablet uredjaji */

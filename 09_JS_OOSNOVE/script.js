@@ -54,13 +54,13 @@ console.log(d);
 
 let vremeSati = 5, vremeMinuti = 30;
 
-let ponoc = 12*60;
+let ponoc = 24*60;
 console.log(ponoc);
 
 let ostatakPoslePonoci = ponoc-(vremeSati*60 + vremeMinuti);
 console.log(ostatakPoslePonoci);
 
-let kolikoSatiH = ostatakPoslePonoci%12;
+let kolikoSatiH = ostatakPoslePonoci%24;
 console.log(kolikoSatiH);
 
 let kolikoMinutaM = ostatakPoslePonoci%60;
