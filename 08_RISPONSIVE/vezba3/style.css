@@ -18,20 +18,27 @@ header, footer{
 
     background-color: aqua;
     text-align: center;
+    font-size: 20px;
+    padding: 10px 0;
 }
-aside, .aforizmi{
+.aforizmi, aside{
     background: linear-gradient(to bottom, #44e4e4 60%, #ffffff 100%);
     padding: 10px;
+    font-size: 20px;
 }
+.aforizmi h2{
+    padding: 10px 0;
+}
+
 header{
     top:0;
 }
 footer{
+    position:fixed;
     bottom: 0;
 }
 i {
-    width:10px;
-    height: 10px;
+    margin: 10px;
 }
 
 nav ul{
@@ -40,19 +47,25 @@ nav ul{
 nav ul li{
     border: 1px solid aqua;
     background-color:#44e4e4 ;
-    padding: 10px;
-    overflow: hidden;
+
+    
 }
 nav ul li a{
     display: block;
     text-decoration: none;
     color: black;
+    padding: 5px;
+    font-size: 20px;
+    
 }
 
 nav ul li a:hover{
     background-color: aqua;
 }
 
+.donji{
+    margin-bottom: 40px;
+}
 
 
 /* *************
