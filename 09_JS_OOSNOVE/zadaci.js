@@ -1,9 +1,11 @@
+"use strickt"
 // Zadatak 1
 
-let s = 15, m = 21;
+let s = 15,
+    m = 21;
 
 
-let odPonoci = s*60 + m; 
+let odPonoci = s * 60 + m;
 console.log("Od ponoci je proslo " + odPonoci + " minuta");
 
 let doPonoci = 24 * 60 - odPonoci;
@@ -25,7 +27,7 @@ console.log("Sada je " + satSada + ":" + minSada);
 // console.log(Math.ceil(minOdPonoci/60)); // daaje ceo broj veci ili jednak od rezultata
 // console.log(Math.round(minOdPonoci/60)); // daje ceo broj rezultat zaokruzivanja
 
-let satSada2 = Math.floor(minOdPonoci/60);
+let satSada2 = Math.floor(minOdPonoci / 60);
 let minSada2 = minOdPonoci % 60;
 
 console.log("sada je " + satSada2 + ":" + minSada2);
@@ -33,7 +35,8 @@ console.log("sada je " + satSada2 + ":" + minSada2);
 
 //Zadataak 3
 
-let cenaRobe = 1750, novcanica = 2000;
+let cenaRobe = 1750,
+    novcanica = 2000;
 
 let kusur = novcanica - cenaRobe;
 
@@ -51,8 +54,8 @@ let razmenaEuDin = kursEuro * ukupnoEu;
 
 console.log("ukupno imate " + razmenaEuDin + " dinara");
 
-let razmenaDinEu = razmenaEuDin/kursEuro;
-console.log("ukupno imate " + razmenaDinEu + " eura" );
+let razmenaDinEu = razmenaEuDin / kursEuro;
+console.log("ukupno imate " + razmenaDinEu + " eura");
 
 // Zadatak 7
 
@@ -74,4 +77,16 @@ console.log("Nakon razmene imate " + kolikoEura + " eura");
 
 //
 
+// Trenutno vreme i datum
 
+let datum = new Date();
+
+let godina = datum.getFullYear();
+
+let mesec = datum.getMonth() + 1;
+
+let datumUMesecu = datum.getDate();
+let datumUNedelji = datum.getDay();
+console.log("Danas je " + datumUMesecu + "." + mesec + "." + godina);
+
+console.log(datumUNedelji);
