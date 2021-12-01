@@ -45,3 +45,4 @@ if (b1 > b2) {
         console.log(`broj ${b2} je srednji`);
     }
 }
+
