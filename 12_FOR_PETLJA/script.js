@@ -168,6 +168,8 @@ Svaki red tabele treba da ima po dve ćelije (dve kolone).
 Svakom parnom redu dodati klasu „obojen“.
 Korišćenjem CSS-a, klasi obojen postaviti proizvoljnu boju pozadine.  */
 
+document.body.innerHTML += `<p> 20. Zadatak</p>`;
+
 let tabela = `<table border="1">`;
 
 for (let i = 1; i <= 6; i++) {
@@ -191,3 +193,93 @@ for (let i = 1; i <= 6; i++) {
 tabela += `</table>`;
 
 document.body.innerHTML += tabela;
+
+//21. ZADATAK
+
+/*
+Koristeći for petlju kreirati neuređenu listu sa ugnježdenim elementima, kao što je prikazano na slici sa desne strane.
+*/
+document.body.innerHTML += `<p> 21. Zadatak</p>`;
+
+let ul1 = `<ul>`;
+for (let i = 1; i < 10; i++) {
+  if (i % 3 == 0) {
+    ul1 += `
+    <ul>
+      <li style="color:purple;;">Element ${i}</li>
+    </ul
+    `;
+  } else {
+    ul1 += `
+      <li>Element ${i}</li>
+    `;
+  }
+}
+ul1 += `</ul>`;
+
+document.body.innerHTML += ul1;
+
+//22. ZADATAK
+document.body.innerHTML += `<p> 22. Zadatak</p>`;
+
+let div1 = `<div>`;
+for (let i = 1; i <= 64; i++) {
+  if (i % 8 == 0) {
+    div1 += `<span class="span1">${i}</span></br>`;
+  } else {
+    div1 += `<span class="span1">${i}</span>`;
+  }
+}
+div1 += `</div>`;
+
+document.body.innerHTML += div1;
+
+//23.zadatak
+document.body.innerHTML += `<p> 23. Zadatak</p>`;
+/*
+1. nacin kreiranje celije i redova,
+ali se postavlja pitanje kako ubaciti brojeve od 
+1 - 64 u span element.
+*/
+let div2 = `<div>`;
+let span = `<span class="span1"></span>`;
+
+// kreiraanje reda
+for (let red = 1; red <= 8; red++) {
+  div2 += `<div>`;
+  // kreiranje celije
+  for (let celija = 1; celija <= 8; celija++) {
+    if ((red + celija) % 2 != 0) {
+      div2 += span = `<span class="span1 crna"></span>`;
+    } else {
+      div2 += span = `<span class="span1 bela"></span>`;
+    }
+  }
+
+  div2 += `</div>`;
+}
+div2 += `</div>`;
+
+document.body.innerHTML += div2;
+
+// let div2 = `<div>`;
+// for (let i = 1; i <= 64; i++) {
+//   let span = `<span class="span1">${i}</span>`;
+//   div2 += span;
+//   if (i % 8 == 0) {
+//     div2 += `<br/>`;
+//   }
+//   // for (span = 0; span <= i; span++)
+//   // {
+//   //   if ((span + i) % 2 == 0)
+//   //   {
+//   //     span = `<span class="span1 crna">${i}</span>`;
+//   //   }
+//   //   else
+//   //   {
+//   //     span = `<span class="span1 bela">${i}</span>`;
+//   //   }
+//   // }
+// }
+// div2 += `</div>`;
+// document.body.innerHTML += div2;
