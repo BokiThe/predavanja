@@ -75,9 +75,10 @@ console.log(`////////////////// 1 ZADATAK ///////////////`);
 let dan = {
     datum: "2021/12/23",
     kisa: true,
-    sunce: true,
+    sunce: false,
     oblacno: true,
     temperature: [-4, -4, -2, -2, 0, 8, 1, 1, 1, 3, 3, 4, 0],
+    // napravit metodu koja vraca prosecnu temperaturu
     prosTemperatura: function(niz) {
         let brojac = 0;
         let sredina = 0;
@@ -87,6 +88,7 @@ let dan = {
         });
         return brojac != 0 ? sredina / brojac : 0;
     },
+    //napraviti metodu koja vraca broj natprosecih temperatura
     natProsTemp: function(niz) {
         let brojac = 0;
         let prosek = this.prosTemperatura(niz);
@@ -95,6 +97,7 @@ let dan = {
         });
         return brojac;
     },
+    //napraviti metodu koja vraca maksimalnu temperaturu
     maxTemperatura: function(niz) {
         let max = niz[0];
         niz.forEach((el) => {
@@ -102,6 +105,7 @@ let dan = {
         });
         return max;
     },
+    //napraviti metodu koja vraca broj maksimalnih temperatura u danu
     brojMaxTemp: function(niz) {
         let brojac = 0;
         let max = this.maxTemperatura(niz);
@@ -111,6 +115,7 @@ let dan = {
         });
         return brojac;
     },
+    // napraviti metodu koja prima dve vrednost i koja vraca broj merenja izmedju te dve vrednosti ne ukljucujucio i njih
     brMerenjaIzmDveTemp: function(br1, br2) {
         let brojac = 0;
         this.temperature.forEach((el) => {
@@ -118,6 +123,7 @@ let dan = {
         });
         return brojac;
     },
+    // metoda broja temperatura ispod proseka
     manjeOdProseka: function(niz) {
         let brojac = 0;
         let prosek = this.prosTemperatura(niz);
@@ -126,6 +132,7 @@ let dan = {
         });
         return brojac;
     },
+    //napraviti  metodu koja vraca true ako je broj natprosecnih temperatura veci od prosecnih temperatura
     iznadProseka: function(niz) {
         if (this.natProsTemp(niz) > this.temperature.length / 2) {
             return true;
@@ -133,6 +140,7 @@ let dan = {
             return false;
         }
     },
+    //napraviti metodu koja vraca da li je dan bio leden, a dan je leden ako temperature nijednom nije presla 0 stepeni
     daliJeLeden: function() {
         let brojac = 0;
         this.temperature.forEach((el) => {
@@ -144,6 +152,8 @@ let dan = {
             return false;
         }
     },
+
+    // napraviti metodu koja vraca da li je dan bio tropski, a dan je tropski ako teperatura nijednom nije pala ispod 24 stepena
     daliJeTropski: function() {
         let brojac = 0;
         this.temperature.forEach((el) => {
@@ -155,6 +165,15 @@ let dan = {
             return false;
         }
     },
+    //metoda koja vraca minimalnu temperaaturu
+    minTemp: function(niz) {
+        let min = niz[0];
+        niz.forEach((el) => {
+            min > el ? (min = el) : false;
+        });
+        return min;
+    },
+    //napraviti metodu koja vraca da li je dan bio nepovoljan, aa dan je nepovoljan ako je razlika 2 uzastopna merenja veca od 8 stepeni
     daliJeNepovoljan: function() {
         let razlika = 0;
         let brojac = 0;
@@ -168,14 +187,22 @@ let dan = {
             return false;
         }
     },
-    daliJeNeuobicajen: function() {},
+    // Za dan se kaže da je neuobičajen ako je bilo kiše i ispod -5 stepeni, ili bilo oblačno i iznad 25 stepeni, ili je bilo i kišovito i oblačno i sunčano. Metod vraća true ukoliko je dan bio neuobičajen, u suprotnom vraća false.
+    daliJeNeuobicajen: function() {
+        let min = this.minTemp(this.temperature);
+        let max = this.maxTemperatura(this.temperature);
+        if (
+            (this.kisa == true && min < -5) ||
+            (this.oblacno == true && max > 25) ||
+            (this.kisa == true && this.oblacno == true && this.sunce == true)
+        ) {
+            return true;
+        } else {
+            return false;
+        }
+    },
 };
 
-/*
-Za dan se kaže da je neuobičajen ako je bilo kiše i ispod -5 stepeni, ili bilo oblačno i iznad 25 stepeni, ili je bilo i kišovito i oblačno i sunčano. Metod vraća true ukoliko je dan bio neuobičajen, u suprotnom vraća false.
-
-
-*/
 console.log(dan);
 console.log(dan.datum);
 console.log(dan.kisa);
@@ -191,8 +218,4 @@ console.log(dan.iznadProseka(dan.temperature));
 console.log(dan.daliJeLeden());
 console.log(dan.daliJeTropski());
 console.log(dan.daliJeNepovoljan());
-
-// 4
-/* 
-Prima dva parametra koji predstavljaju dve temperature. Potrebno je da metoda vrati broj merenja u toku dana čija je vrednost između ove dve zadate temperature (ne uključujući te dve vrednosti).
-*/
+console.log(dan.daliJeNeuobicajen());
