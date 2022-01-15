@@ -1,4 +1,4 @@
-import { generateImage } from "./general.js";
+import generateImage from "./general.js";
 
 function generateList(parent) {
     let ul = document.createElement("ul");

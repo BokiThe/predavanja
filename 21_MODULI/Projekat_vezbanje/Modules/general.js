@@ -3,4 +3,4 @@ function generateImage(src) {
     img.src = src;
     return img;
 }
-export { generateImage };
+export default generateImage;

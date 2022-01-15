@@ -1,4 +1,4 @@
-import { generateImage } from "./general.js";
+import generateImage from "./general.js";
 
 let generateTable = (parent) => {
     let table = document.createElement("table");

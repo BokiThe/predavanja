@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PACIJENTI</title>
+    <style>
+        .btn {
+            border: 1px solid crimson;
+            border-radius: 30px;
+            padding: 10px;
+            background-color: cyan;
+            font-size: large;
+        }
+        
+        .btn:hover {
+            background-color: crimson;
+            border: 1px solid cyan;
+            color: white;
+            cursor: pointer;
+        }
+        
+        ul {
+            list-style-type: none;
+            border: 1px solid crimson;
+            padding: 10px;
+            background-color: cyan;
+            font-size: large;
+        }
+    </style>
+</head>
+
+<body>
+    <hr />
+    <hr />
+    <br />
+    <span class="btn" id="minTez">Pacijenti sa najmanjom tezinom</span>
+    <br /><br />
+    <span id="minTezRez"></span>
+    <hr />
+    <hr />
+    <br />
+
+    <hr />
+    <hr />
+    <br />
+    <span class="btn" id="maxBmi">Pacijenti sa najvecim BMI</span>
+    <br /><br />
+    <span id="maxBmiRez"></span>
+    <hr />
+    <hr />
+    <br />
+
+    <hr />
+    <hr />
+    <br />
+    <span class="btn" id="stampajTabelu">Svi Pacijenti</span>
+    <br /><br />
+    <span id="tabelaRez"></span>
+    <hr />
+    <hr />
+    <br />
+
+    <script src="script.js" type="module"></script>
+</body>
+
+</html>
