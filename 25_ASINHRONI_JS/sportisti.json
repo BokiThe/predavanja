@@ -1,0 +1,21 @@
+[{
+        "imePrezime": "Nikola Stojakovic",
+        "visina": 1.98,
+        "timovi": ["LA Lakers", "Sacramento Kings", "Partizan", "Zvezda"]
+    },
+    {
+        "imePrezime": "Petar Petrovic",
+        "visina": 2.01,
+        "timovi": ["Gradjanski", "Partizan", "Cibona", "Denver"]
+    },
+    {
+        "imePrezime": "Vlade Divac",
+        "visina": 2.16,
+        "timovi": ["Partizan", "Zvezda", "Sharlot Hornets", "LA Lakers"]
+    },
+    {
+        "imePrezime": "Bogdan Bogdanovic",
+        "visina": 1.98,
+        "timovi": ["Partizan", "Sacramento Kings", "Atalanta Hawks", "Fenerbahce"]
+    }
+]
