@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CHAT PROJECT</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="chat">
+      <div id="headerSection">
+        <h2>IT Bootcamp Chat</h2>
+        <p>Choose a chatroom</p>
+      </div>
+      <div id="chatRooms">
+        <button class="btn">#general</button>
+        <button class="btn">#js</button>
+        <button class="btn">#homeworks</button>
+        <button class="btn">#tests</button>
+      </div>
+      <div id="messageSection"></div>
+      <div id="inputSection">
+        <form id="messageForm">
+          <input
+            type="text"
+            name="message"
+            id="message"
+            placeholder="Send  message...."
+          />
+          <input class="btn" type="submit" value="Send" />
+        </form>
+        <form id="usernameForm">
+          <input
+            type="text"
+            name="username"
+            id="username"
+            placeholder="Update username...."
+          />
+          <input class="btn" type="submit" value="Update" />
+        </form>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
