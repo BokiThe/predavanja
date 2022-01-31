@@ -16,6 +16,7 @@ body{
     flex:1;
     flex-direction: column;
     justify-content: space-between;
+    height: 100vh;
     
 }
 
@@ -24,7 +25,7 @@ body{
     flex: 1;
     flex-direction: row;
     justify-content: center;
-
+    
     margin: 20px;
 }
 
@@ -35,6 +36,7 @@ body{
     padding: 5px;
     margin: 0 5px;
     border-radius: 5px;
+    height:30px;
 }
 
 .btn:hover{
@@ -42,3 +44,4 @@ body{
     background-color:orange;
     color:black;
 }
+#inputSection
