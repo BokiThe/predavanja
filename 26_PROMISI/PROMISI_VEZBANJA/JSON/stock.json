@@ -1,0 +1,31 @@
+[{
+        "id": 1,
+        "item": "Polica 20cm",
+        "stock": 400
+
+    },
+    {
+        "id": 2,
+        "item": "Polica 40cm",
+        "stock": 100
+
+    },
+    {
+        "id": 3,
+        "item": "Fotelja lux",
+        "stock": 0
+
+    },
+    {
+        "id": 4,
+        "item": "Radna stolica lux",
+        "stock": 200
+
+    },
+    {
+        "id": 5,
+        "item": "Radni sto lux",
+        "stock": 0
+
+    }
+]

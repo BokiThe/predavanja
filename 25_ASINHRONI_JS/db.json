@@ -19,5 +19,18 @@
             "visina": 1.98,
             "timovi": ["Partizan", "Sacramento Kings", "Atalanta Hawks", "Fenerbahce"]
         }
+    ],
+    "fruits": [{
+            "name": "jagoda",
+            "number": "15"
+        },
+        {
+            "name": "breskva",
+            "number": "32"
+        },
+        {
+            "name": "jabuka",
+            "number": "20"
+        }
     ]
 }

@@ -25,21 +25,21 @@ let getTodos = (resurse) => {
 // zelim prvo da se ocita todos.json
 // pa onda fruits.json
 //pa onda vegitables.json
-getTodos("../JSON/todos.json")
-    .then((data) => {
-        console.log("promise todos resolve", data);
-        return getTodos("../JSON/fruits.json");
-    })
-    .then((data) => {
-        console.log(data);
-        return getTodos("../JSON/vegitables.json");
-    })
-    .then((data) => {
-        console.log(data);
-    })
-    .catch((err) => {
-        console.log("Promise rejected!", err);
-    });
+// getTodos("../JSON/todos.json")
+//     .then((data) => {
+//         console.log("promise todos resolve", data);
+//         return getTodos("../JSON/fruits.json");
+//     })
+//     .then((data) => {
+//         console.log(data);
+//         return getTodos("../JSON/vegitables.json");
+//     })
+//     .then((data) => {
+//         console.log(data);
+//     })
+//     .catch((err) => {
+//         console.log("Promise rejected!", err);
+//     });
 // getTodos()
 //     .then((data) => {
 //         console.log("promise fruits resolved", data);
@@ -54,3 +54,11 @@ getTodos("../JSON/todos.json")
 //     .catch((err) => {
 //         console.log("promise rejected", err);
 //     });
+
+getTodos("http://localhost:3000/sportisti")
+    .catch((err) => {
+        console.log(err);
+    })
+    .then((data) => {
+        console.log(data);
+    });
