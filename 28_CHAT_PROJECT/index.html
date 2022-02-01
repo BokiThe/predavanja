@@ -15,48 +15,52 @@
   </head>
   <body>
     <!-- CHAT  -->
-    <div id="chat">
-      <!-- CHAT HEADER -->
-      <div id="headerSection">
-        <h2>IT Bootcamp Chat</h2>
-        <p>Choose a chatroom</p>
-      </div>
-      <!-- CHAT NAVIGATION -->
-      <div id="hamburgerMenu" class="dropdown">
-        <i class="fas fa-bars fa-2x"></i>
-        <button class="btn">#general</button>
-        <button class="btn">#js</button>
-        <button class="btn">#homeworks</button>
-        <button class="btn">#tests</button>
-      </div>
-      <nav id="chatRooms">
-        <button class="btn">#general</button>
-        <button class="btn">#js</button>
-        <button class="btn">#homeworks</button>
-        <button class="btn">#tests</button>
-      </nav>
-      <!-- MESSAGE SECTION -->
-      <div id="messageSection"></div>
-      <!-- INPUT SECTION -->
-      <div id="inputSection">
-        <form id="messageForm">
-          <input
-            type="text"
-            name="message"
-            id="message"
-            placeholder="Send  message...."
-          />
-          <input class="btn" type="submit" value="Send" />
-        </form>
-        <form id="usernameForm">
-          <input
-            type="text"
-            name="username"
-            id="username"
-            placeholder="Update username...."
-          />
-          <input class="btn" type="submit" value="Update" />
-        </form>
+    <div id="chatContainer">
+      <div id="chat">
+        <!-- CHAT HEADER -->
+        <div id="headerSection">
+          <h2>IT Bootcamp Chat</h2>
+          <p>Choose a chatroom</p>
+        </div>
+        <!-- CHAT NAVIGATION -->
+        <div id="hamburgerMenu" class="dropdown">
+          <i class="fas fa-bars fa-2x"></i>
+          <button class="btn">#general</button>
+          <button class="btn">#js</button>
+          <button class="btn">#homeworks</button>
+          <button class="btn">#tests</button>
+        </div>
+        <nav id="chatRooms">
+          <button class="btn">#general</button>
+          <button class="btn">#js</button>
+          <button class="btn">#homeworks</button>
+          <button class="btn">#tests</button>
+        </nav>
+        <!-- MESSAGE SECTION -->
+        <div id="messageSection">
+          <ul></ul>
+        </div>
+        <!-- INPUT SECTION -->
+        <div id="inputSection">
+          <form id="messageForm">
+            <input
+              type="text"
+              name="message"
+              id="message"
+              placeholder="Send  message...."
+            />
+            <input class="btn" type="submit" value="Send" />
+          </form>
+          <form id="usernameForm">
+            <input
+              type="text"
+              name="username"
+              id="username"
+              placeholder="Update username...."
+            />
+            <input class="btn" type="submit" value="Update" />
+          </form>
+        </div>
       </div>
     </div>
 
@@ -86,6 +90,6 @@
       let db = firebase.firestore();
     </script>
     <!-- SCRIPT -->
-    <script src="script.js" type="module"></script>
+    <script src="App.js" type="module"></script>
   </body>
 </html>
