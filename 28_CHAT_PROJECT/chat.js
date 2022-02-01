@@ -18,6 +18,18 @@ class Chatroom {
     let response = await this.chats.add(docChat);
     return response;
   }
+  getChat(callback) {
+    this.chats
+      .where("room", "==", this.room)
+      .orderBy("created_at")
+      .onSnapshot((snapshot) => {
+        snapshot.docChanges().forEach((change) => {
+          if (change.type == "added") {
+            callback(change.doc.data());
+          }
+        });
+      });
+  }
   //set and get for props
   set room(r) {
     let r1 = r.trim();

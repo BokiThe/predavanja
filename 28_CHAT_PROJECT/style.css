@@ -8,40 +8,109 @@ body{
     height: 100vh;
     text-align: center;
     background:black;
-    color:orange;
+    color:rgb(180, 104, 28);
 }
-
 #chat{
     display: flex;
     flex:1;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: space-around;
+    align-items: center;
     height: 100vh;
-    
+    border: 1px solid rgb(180, 104, 28);
 }
+#headerSection{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 10%;
+}
+.dropdown {
+    display: none;
+    justify-self: center;
 
+}
 #chatRooms{
     display: flex;
-    flex: 1;
     flex-direction: row;
     justify-content: center;
-    height:  40px;
-    margin: 20px;
+    flex-wrap: wrap; 
+}
+#messageSection {
+    background-color:rgb(180, 104, 28);
+    color: black;
+    border: 1px solid black; 
+    border-radius: 5px;
+    height: 25%;
+    width: 80%;
 }
 
 .btn {
     background-color: black;
-    color:orange;
+    color:rgb(180, 104, 28);
     width: 150px;
     padding: 5px;
-    margin: 0 5px;
+    margin: 10px 5px;
     border-radius: 5px;
-    height:30px;
+
 }
 
 .btn:hover{
     cursor: pointer;
-    background-color:orange;
+    background-color:rgb(180, 104, 28);
     color:black;
+    box-shadow: 2px 2px 5px rgb(180, 104, 28);
+}
+#inputSection input[type="text"], input::placeholder {
+    background-color:rgb(180, 104, 28);
+    color:black;
+    padding: 5px;
+    border-radius: 5px;
 }
 
+
+/*------ MEDIA QUERIES -------*/
+
+ /*--- Mobile ----- */
+@media screen and (max-width: 350px) {
+    #hamburgerMenu{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        
+    }
+    #hamburgerMenu button{
+        display: none;
+    }
+    
+    #hamburgerMenu:hover{
+        background-color:black;
+        color:rgb(180, 104, 28);
+        cursor: pointer;
+        
+        
+    }
+    #hamburgerMenu:hover button{
+        display: inherit;
+        margin:0;
+    }
+    
+    nav button{
+        display: none;
+    }
+    #messageSection{
+        height: 20%;
+    }
+    .btn{
+        width: 90%;
+    }
+    #inputSection input[type="text"] {
+        width: 90%;
+    }
+}
+/*------ LARGE SCREENS ---- */
+@media screen and (min-width: 780px){
+    #messageSection {
+        width: 640px;
+    }
+}
