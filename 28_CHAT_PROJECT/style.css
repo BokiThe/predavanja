@@ -53,6 +53,7 @@ body{
     border-radius: 5px;
     height: 25%;
     width: 95%;
+    overflow-y: scroll;
 }
 
 .btn {
