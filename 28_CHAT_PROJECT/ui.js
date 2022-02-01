@@ -8,5 +8,9 @@ class ChatUi {
   get elem() {
     return this._elem;
   }
+  templateLI(data) {
+    let HTMLLI = `${data.username}: ${data.message} <br/> ${data.created_at} <br/>`;
+    this.elem.innerHTML += HTMLLI;
+  }
 }
 export default ChatUi;

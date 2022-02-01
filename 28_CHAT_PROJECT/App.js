@@ -17,10 +17,9 @@ console.log(chat1.room);
 //   .addChat("Prva poruka")
 //   .then(() => console.log(`New chat added successfuly!`))
 //   .catch((err) => console.log("Something went wrong: ", err));
-
-chat1.getChat((d) => {
-  console.log(d);
-});
+// IPIS DB COLEKKCIJE U KONZOLI
 
 let li1 = new ChatUi(ul);
-console.log(li1.elem);
+chat1.getChat((d) => {
+  li1.templateLI(d);
+});
