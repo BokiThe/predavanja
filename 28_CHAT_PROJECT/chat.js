@@ -26,6 +26,7 @@ class Chatroom {
         snapshot.docChanges().forEach((change) => {
           if (change.type == "added") {
             callback(change.doc.data());
+            ``;
           }
         });
       });

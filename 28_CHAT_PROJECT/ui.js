@@ -25,9 +25,9 @@ class ChatUi {
     return `${day}.${month}.${year} - ${hour}:${min}`;
   }
   templateLI(data) {
-    let HTMLLI = `${data.username}: ${data.message} <br/> ${this.getTime(
+    let HTMLLI = `<li>${data.username}: ${data.message} <br/> ${this.getTime(
       data.created_at.toDate()
-    )} <br/>`;
+    )}</li> <br/>`;
     this.elem.innerHTML += HTMLLI;
   }
 }
