@@ -2,15 +2,34 @@ import Chatroom from "./chat.js";
 import ChatUi from "./ui.js";
 
 /*---DOM ELEMENTS---  */
+let chatContainer = document.getElementById("chatContainer");
 let messageBtn = document.getElementById("messageBtn");
 let messageInput = document.getElementById("message");
 let usernameBtn = document.getElementById("usernameBtn");
 let usernameInput = document.getElementById("username");
+
 let ul = document.querySelector("ul");
 console.log(ul);
 
-/* CREATING NEW CHATROOM AND CHATUI */
+/*----- LOCAL STORAGE ---- */
+/*----adding to local storage --- */
+// localStorage.setItem("My first item", 5);
+// localStorage.setItem("My first item", "string");
 
+// /*--- demonstration --- */
+// localStorage.setItem("x", 7);
+// localStorage.setItem("y", 10);
+/*collecting from local storage */
+let z = localStorage.x + localStorage.y;
+console.log(z);
+
+if (localStorage.x) {
+  console.log(`X postoji`);
+} else {
+  console.log("x  ne postoji");
+}
+
+/* CREATING NEW CHATROOM AND CHATUI */
 const chatroom = new Chatroom("general", "bojan123");
 let li1 = new ChatUi(ul);
 
@@ -49,8 +68,23 @@ messageBtn.addEventListener("click", (e) => {
 usernameBtn.addEventListener("click", (e) => {
   e.preventDefault();
   let usernameInputValue = usernameInput.value;
-  if (usernameInputValue.length >= 2 && usernameInputValue.length <= 10) {
+  if (chatroom.validateUser(usernameInputValue)) {
+    let p = document.createElement("p");
+    p.innerText = `Your new username is ${usernameInputValue}`;
+    d;
+    chatContainer.appendChild(p);
     chatroom.username = usernameInputValue;
     usernameInput.value = "";
+    setInterval(() => {
+      chatContainer.removeChild(p);
+    }, 1000 * 3);
+  } else {
+    let p = document.createElement("p");
+    p.innerText = `Username must be between 2 and 10 caracters`;
+    chatContainer.appendChild(p);
+    usernameInput.value = "";
+    setInterval(() => {
+      chatContainer.removeChild(p);
+    }, 1000 * 3);
   }
 });
