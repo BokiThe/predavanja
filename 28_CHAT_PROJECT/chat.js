@@ -5,7 +5,7 @@ class Chatroom {
     this.chats = db.collection("chats");
   }
   // METHODS
-
+  /*----- ADD CHAT --- */
   async addChat(message) {
     let date = new Date();
 
@@ -18,6 +18,7 @@ class Chatroom {
     let response = await this.chats.add(docChat);
     return response;
   }
+  /*----- GET CHAT --- */
   getChat(callback) {
     this.chats
       .where("room", "==", this.room)
@@ -31,6 +32,8 @@ class Chatroom {
         });
       });
   }
+  /* ---- UPDATE USERNAME --- */
+
   //set and get for props
   set room(r) {
     let r1 = r.trim();
@@ -43,13 +46,8 @@ class Chatroom {
   get room() {
     return this._room;
   }
-  set username(un) {
-    let un1 = un.trim();
-    if (un1.length >= 2 && un1.length <= 10) {
-      this._username = un1;
-    } else {
-      this._username = "user" + Math.floor(Math.random() * 500);
-    }
+  set username(un1) {
+    this._username = un1;
   }
   get username() {
     return this._username;

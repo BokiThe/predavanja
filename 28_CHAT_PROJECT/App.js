@@ -1,26 +1,21 @@
 import Chatroom from "./chat.js";
 import ChatUi from "./ui.js";
 
-const chat1 = new Chatroom("general", "bojan123");
+/*---DOM ELEMENTS---  */
+let messageBtn = document.getElementById("messageBtn");
+let messageInput = document.getElementById("message");
+let usernameBtn = document.getElementById("usernameBtn");
+let usernameInput = document.getElementById("username");
 let ul = document.querySelector("ul");
 console.log(ul);
 
-console.log(chat1.username, chat1.room);
+/* CREATING NEW CHATROOM AND CHATUI */
 
-chat1.username = "r";
-console.log(chat1.username);
-
-chat1.room = "js";
-console.log(chat1.room);
-
-// chat1
-//   .addChat("Prva poruka")
-//   .then(() => console.log(`New chat added successfuly!`))
-//   .catch((err) => console.log("Something went wrong: ", err));
-// IPIS DB COLEKKCIJE U MESSAGE POLJU!
-
+const chatroom = new Chatroom("general", "bojan123");
 let li1 = new ChatUi(ul);
-chat1.getChat((d) => {
+
+// IPIS DB COLEKKCIJE U MESSAGE POLJU!
+chatroom.getChat((d) => {
   li1.templateLI(d);
 });
 
@@ -34,24 +29,28 @@ Dobro protestirati slanje poruka da li radi u bazi podataka i na stranici
 
 Onemogućiti slanje prazne poruke 🖳
 */
-
-let messageBtn = document.getElementById("messageBtn");
-let messageInput = document.getElementById("message");
-let usernameBtn = document.getElementById("usernameBtn");
-let usernameInput = document.getElementById("username");
-
+/* ----- SENDING MESSAGE --- */
 messageBtn.addEventListener("click", (e) => {
   e.preventDefault();
   let messageInputValue = messageInput.value;
-  let usernameInputValue = usernameInput.value;
 
   if (messageInputValue.trim().length != "") {
-    chat1
+    chatroom
       .addChat(messageInputValue)
       .then(() => {
         messageInput.value = "";
         console.log(`uspesno dodat chat`);
       })
       .catch((err) => console.log(`greska`, err));
+  }
+});
+
+/*----- UPDATE USERNAME ---- */
+usernameBtn.addEventListener("click", (e) => {
+  e.preventDefault();
+  let usernameInputValue = usernameInput.value;
+  if (usernameInputValue.length >= 2 && usernameInputValue.length <= 10) {
+    chatroom.username = usernameInputValue;
+    usernameInput.value = "";
   }
 });
