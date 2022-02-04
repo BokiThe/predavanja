@@ -30,5 +30,9 @@ class ChatUi {
     )}</li> <br/>`;
     this.elem.innerHTML += HTMLLI;
   }
+  clear() {
+    this.elem.innerHTML = "";
+  }
 }
+
 export default ChatUi;

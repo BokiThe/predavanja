@@ -19,6 +19,7 @@ body{
     border-radius: 10px;
     box-shadow: 5px 5px 5px rgb(180, 104, 28);
     margin:20px 0;
+
 }
 #chat{
     display: flex;
@@ -75,13 +76,19 @@ body{
     border-radius: 5px;
 
 }
-
 .btn:hover{
     cursor: pointer;
     background-color:rgb(180, 104, 28);
     color:black;
     box-shadow: 2px 2px 5px rgb(180, 104, 28);
 }
+.btn:focus{
+    cursor: pointer;
+    background-color:rgb(180, 104, 28);
+    color:black;
+    box-shadow: 2px 2px 5px rgb(180, 104, 28);
+}
+
 #inputSection input[type="text"], input::placeholder {
     background-color:rgb(180, 104, 28);
     color:black;
@@ -91,6 +98,18 @@ body{
 }
 #inputSection input[type="submit"] {
     margin:10px 0;
+}
+
+#updateUsername{
+    color:rgb(180, 104, 28);
+    font-weight: bold;
+    padding:3px;
+    border: 1px solid rgb(180, 104, 28) ;
+}
+#updateUsername strong{
+    color: black;
+    background-color:rgb(180,104,28);
+    padding: 3px;
 }
 
 
