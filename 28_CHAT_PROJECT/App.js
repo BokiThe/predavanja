@@ -7,36 +7,32 @@ let messageForm = document.getElementById("messageForm");
 let messageInput = document.getElementById("message");
 let usernameInput = document.getElementById("username");
 let chatRooms = document.getElementById("chatRooms");
-let hamburgerMenu = document.getElementById("hamburgerMenu");
-console.log(chat);
+let msgSection = document.getElementById("messageSection");
+let colorForm = document.getElementById("colorForm");
+let colorPick = document.getElementById("colorPick");
 
+/*--- message section scroll bottom --- */
+
+let scrollDown = (a) => {
+  a.scrollTop = a.scrollHeight;
+};
+window.onload = scrollDown(msgSection);
 let ul = document.querySelector("ul");
 
 /*----- LOCAL STORAGE ---- */
-/*----adding to local storage --- */
-// localStorage.setItem("My first item", 5);
-// localStorage.setItem("My first item", "string");
 
-// /*--- demonstration --- */
-// localStorage.setItem("x", 7);
-// localStorage.setItem("y", 10);
-/*collecting from local storage */
-// let z = localStorage.x + localStorage.y;
-// console.log(z);
-
-// if (localStorage.x) {
-//   console.log(`X postoji`);
-// } else {
-//   console.log("x  ne postoji");
-// }
 /* ---- checking if the local storige is empty ---- */
 
 let username = "Anonimous";
-if (localStorage.username) {
-  username = localStorage.username;
-} else {
-  localStorage.setItem("username", username);
-}
+let color = "#ffffff";
+//checking for username
+localStorage.username
+  ? (username = localStorage.username)
+  : localStorage.setItem("username", username);
+//checking for color
+localStorage.color
+  ? (color = localStorage.color)
+  : localStorage.setItem("color", color);
 
 /* CREATING NEW CHATROOM AND CHATUI */
 let chatroom = new Chatroom("general", username);
@@ -57,6 +53,7 @@ messageForm.addEventListener("submit", (e) => {
       .addChat(messageInputValue)
       .then(() => {
         messageForm.reset();
+        scrollDown(msgSection);
         console.log(`uspesno dodat chat`);
       })
       .catch((err) => console.log(`greska`, err));
@@ -96,11 +93,50 @@ chatRooms.addEventListener("click", (e) => {
   let roomName = e.target.innerHTML;
   if (e.target.tagName === "BUTTON") {
     if (e.target.innerHTML == roomName) {
+      scrollDown(msgSection);
       li1.clear();
       chatroom.updateRoom(e.target.innerHTML);
       chatroom.getChat((d) => {
         li1.templateLI(d);
       });
     }
+  }
+});
+
+/* --- Delete message --- */
+msgSection.addEventListener("click", (e) => {
+  e.preventDefault();
+  if (e.target.tagName === "SPAN") {
+    let parrent = e.target.parentElement;
+    let username = parrent.childNodes[0].innerHTML;
+    if (localStorage.username === username) {
+      function confirmDelete() {
+        let conf = confirm(
+          "This will permanent delete the message, press OK to continue?"
+        );
+        if (conf) {
+          parrent.remove();
+          chatroom.deleteMsg(parrent.id);
+        }
+      }
+      confirmDelete();
+    } else {
+      parrent.remove();
+    }
+  }
+});
+
+/* --- Change Background color --- */
+colorForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+  let colorPickValue = colorPick.value;
+
+  if (localStorage.color != colorPickValue) {
+    localStorage.color = colorPickValue;
+    setTimeout(() => {
+      document.body.style.background = colorPickValue;
+    }, 500);
+  } else {
+    console.log(`nesto nije u redu`);
   }
 });

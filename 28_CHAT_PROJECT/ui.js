@@ -24,10 +24,15 @@ class ChatUi {
 
     return `${day}.${month}.${year} - ${hour}:${min}`;
   }
-  templateLI(data) {
-    let HTMLLI = `<li>${data.username}: ${data.message} <br/> ${this.getTime(
+
+  templateLI(doc) {
+    let id = doc.id;
+    let data = doc.data();
+    let HTMLLI = `<li id=${id}><i>${data.username}</i>: ${
+      data.message
+    } <br/> ${this.getTime(
       data.created_at.toDate()
-    )}</li> <br/>`;
+    )}<span>&#128465;</span></li> <br/>`;
     this.elem.innerHTML += HTMLLI;
   }
   clear() {

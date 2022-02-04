@@ -19,6 +19,7 @@ body{
     border-radius: 10px;
     box-shadow: 5px 5px 5px rgb(180, 104, 28);
     margin:20px 0;
+    background-color: black;
 
 }
 #chat{
@@ -66,7 +67,14 @@ body{
     width: 55%;
     padding: 5px;
     margin: 5px;
+    position: relative;
 }
+#messageSection li span{
+    position: absolute;
+    bottom:0;
+    right: 0;
+}
+
 .btn {
     background-color: black;
     color:rgb(180, 104, 28);
@@ -95,6 +103,7 @@ body{
     padding: 5px;
     border-radius: 5px;
 }
+
 .inputBtn {
     background-color: black;
     color:rgb(180, 104, 28);
@@ -145,6 +154,16 @@ textarea::placeholder{
     color: black;
     background-color:rgb(180,104,28);
     padding: 3px;
+    border-radius: 3px;
+}
+
+input[type="color"]{
+    width: 46%;
+    color: white;
+    height: 29px;
+    border-radius: 4px;
+    background-color: rgb(180,104,28);
+    
 }
 
 

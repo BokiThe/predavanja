@@ -46,7 +46,7 @@ class Chatroom {
       .onSnapshot((snapshot) => {
         snapshot.docChanges().forEach((change) => {
           if (change.type == "added") {
-            callback(change.doc.data());
+            callback(change.doc);
             ``;
           }
         });
@@ -74,6 +74,16 @@ class Chatroom {
   updateUsername(username) {
     this.username = username;
     localStorage.setItem("username", username);
+  }
+  /*--- Delete message --- */
+  deleteMsg(id) {
+    this.chats
+      .doc(id)
+      .delete()
+      .then(() => console.log(`message deleted!`))
+      .catch((err) => {
+        console.log(err);
+      });
   }
 }
 
