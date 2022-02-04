@@ -3,6 +3,7 @@ class Chatroom {
     this.room = r;
     this.username = un;
     this.chats = db.collection("chats");
+    this.unsub = false;
   }
   //set and get for props
   set room(r) {
@@ -39,7 +40,7 @@ class Chatroom {
   }
   /*----- GET CHAT --- */
   getChat(callback) {
-    this.chats
+    this.unsub = this.chats
       .where("room", "==", this.room)
       .orderBy("created_at")
       .onSnapshot((snapshot) => {
@@ -50,6 +51,13 @@ class Chatroom {
           }
         });
       });
+  }
+  /*--- Update room --- */
+  updateRoom(ur) {
+    this.room = ur;
+    if (this.unsub != false) {
+      this.unsub();
+    }
   }
   /*---- Validate username --- */
 

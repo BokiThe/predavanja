@@ -97,7 +97,7 @@ chatRooms.addEventListener("click", (e) => {
   if (e.target.tagName === "BUTTON") {
     if (e.target.innerHTML == roomName) {
       li1.clear();
-      chatroom.room = e.target.innerHTML;
+      chatroom.updateRoom(e.target.innerHTML);
       chatroom.getChat((d) => {
         li1.templateLI(d);
       });

@@ -94,10 +94,45 @@ body{
     color:black;
     padding: 5px;
     border-radius: 5px;
-    margin-bottom: 10px;
 }
+.inputBtn {
+    background-color: black;
+    color:rgb(180, 104, 28);
+    width: 150px;
+    padding: 5px;
+    margin: 10px 5px;
+    border-radius: 5px;
+
+}
+.inputBtn:hover{
+    cursor: pointer;
+    background-color:rgb(180, 104, 28);
+    color:black;
+    box-shadow: 2px 2px 5px rgb(180, 104, 28);
+}
+form{
+    margin: 10px 0;
+   align-items: center;
+}
+form div{
+    display: inline-block;
+    width: 45%;
+}
+textarea {
+    background-color:rgb(180, 104, 28);
+    color:black;
+    border-radius: 3px;
+    overflow: scroll;
+    height: 17px;
+    padding: 5px;
+    width:42%;
+}
+textarea::placeholder{
+    color:black;
+}
+
 #inputSection input[type="submit"] {
-    margin:10px 0;
+    margin:0px 0px;
 }
 
 #updateUsername{

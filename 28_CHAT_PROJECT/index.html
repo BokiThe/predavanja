@@ -43,13 +43,20 @@
         <!-- INPUT SECTION -->
         <div id="inputSection">
           <form id="messageForm">
-            <input
-              type="text"
-              name="message"
+            <textarea
               id="message"
               placeholder="Send  message...."
-            />
-            <input id="messageBtn" class="btn" type="submit" value="Send" />
+              rows="1"
+              cols="0"
+            ></textarea>
+            <div>
+              <input
+                id="messageBtn"
+                class="inputBtn"
+                type="submit"
+                value="Send"
+              />
+            </div>
           </form>
           <form id="usernameForm">
             <input
@@ -58,7 +65,12 @@
               id="username"
               placeholder="Update username...."
             />
-            <input id="usernameBtn" class="btn" type="submit" value="Update" />
+            <input
+              id="usernameBtn"
+              class="inputBtn"
+              type="submit"
+              value="Update"
+            />
           </form>
         </div>
       </div>
