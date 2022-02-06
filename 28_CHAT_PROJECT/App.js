@@ -10,21 +10,25 @@ let chatRooms = document.getElementById("chatRooms");
 let msgSection = document.getElementById("messageSection");
 let colorForm = document.getElementById("colorForm");
 let colorPick = document.getElementById("colorPick");
+let ul = document.querySelector("ul");
+let hamburgerMenu = document.getElementById("hamburgerMenu");
 
 /*--- message section scroll bottom --- */
 
 let scrollDown = (a) => {
   a.scrollTop = a.scrollHeight;
 };
-window.onload = scrollDown(msgSection);
-let ul = document.querySelector("ul");
+window.onload = () => {
+  scrollDown(msgSection);
+};
 
 /*----- LOCAL STORAGE ---- */
 
 /* ---- checking if the local storige is empty ---- */
 
 let username = "Anonimous";
-let color = "#ffffff";
+let color = "#000000";
+
 //checking for username
 localStorage.username
   ? (username = localStorage.username)
@@ -91,9 +95,24 @@ usernameForm.addEventListener("submit", (e) => {
 chatRooms.addEventListener("click", (e) => {
   e.preventDefault();
   let roomName = e.target.innerHTML;
+
   if (e.target.tagName === "BUTTON") {
-    if (e.target.innerHTML == roomName) {
-      scrollDown(msgSection);
+    scrollDown(msgSection);
+    li1.clear();
+    chatroom.updateRoom(e.target.innerHTML);
+    chatroom.getChat((d) => {
+      li1.templateLI(d);
+    });
+  }
+});
+/*--- Checking Rooms in hamburger menu ---- */
+hamburgerMenu.addEventListener("click", (e) => {
+  e.preventDefault();
+  let roomName = e.target.innerHTML;
+
+  if (e.target.tagName === "BUTTON") {
+    scrollDown(msgSection);
+    if (localStorage.room == roomName) {
       li1.clear();
       chatroom.updateRoom(e.target.innerHTML);
       chatroom.getChat((d) => {
@@ -134,7 +153,7 @@ colorForm.addEventListener("submit", (e) => {
   if (localStorage.color != colorPickValue) {
     localStorage.color = colorPickValue;
     setTimeout(() => {
-      document.body.style.background = colorPickValue;
+      document.body.style.background = localStorage.color;
     }, 500);
   } else {
     console.log(`nesto nije u redu`);

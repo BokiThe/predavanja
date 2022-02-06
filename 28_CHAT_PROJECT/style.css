@@ -9,7 +9,7 @@ body{
     justify-content:center;
     height: 100vh;
     text-align: center;
-    background:black;
+    background-color:black;
     color:rgb(180, 104, 28);
 }
 #chatContainer{
@@ -56,7 +56,7 @@ body{
     border-radius: 5px;
     height: 25%;
     width: 95%;
-    overflow-y: scroll;
+    overflow: auto;
 }
 #messageSection li{
     display: block;
@@ -97,6 +97,7 @@ body{
     box-shadow: 2px 2px 5px rgb(180, 104, 28);
 }
 
+
 #inputSection input[type="text"], input::placeholder {
     background-color:rgb(180, 104, 28);
     color:black;
@@ -104,7 +105,7 @@ body{
     border-radius: 5px;
 }
 
-.inputBtn {
+.inputBtn{
     background-color: black;
     color:rgb(180, 104, 28);
     width: 150px;
@@ -131,13 +132,28 @@ textarea {
     background-color:rgb(180, 104, 28);
     color:black;
     border-radius: 3px;
-    overflow: scroll;
+    overflow-y: scroll;
     height: 17px;
     padding: 5px;
     width:42%;
 }
 textarea::placeholder{
     color:black;
+}
+::-webkit-scrollbar{
+    width:5px;
+   
+}
+::-webkit-scrollbar-track{
+    background:transparent;
+}
+::-webkit-scrollbar-thumb{
+    background-color:gray;
+    border-radius: 2px;
+}
+::-webkit-scrollbar-thumb:hover{
+    background: black;
+    
 }
 
 #inputSection input[type="submit"] {
@@ -206,7 +222,10 @@ input[type="color"]{
     .btn{
         width: 90%;
     }
-    #inputSection input[type="text"] {
+    #inputSection input[type="text"], textarea,input[type="color"], input[type="submit"] {
         width: 90%;
+    }
+    #inputSection div {
+        width: 100%;
     }
 }
