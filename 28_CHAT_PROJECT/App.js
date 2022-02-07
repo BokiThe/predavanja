@@ -168,6 +168,7 @@ colorForm.addEventListener("submit", (e) => {
       document.body.style.background = localStorage.color;
     }, 500);
   } else {
+    document.body.style.background = localStorage.color;
     console.log(`nesto nije u redu`);
   }
 });
