@@ -7,9 +7,8 @@ class Chatroom {
   }
   //set and get for props
   set room(r) {
-    let r1 = r.trim();
-    if (r1.length > 0) {
-      this._room = r1;
+    if (r) {
+      this._room = r;
     } else {
       this._room = "general";
     }

@@ -13,45 +13,46 @@ let colorPick = document.getElementById("colorPick");
 let ul = document.querySelector("ul");
 let hamburgerMenu = document.getElementById("hamburgerMenu");
 
-/*--- message section scroll bottom --- */
-
-let scrollDown = (a) => {
-  a.scrollTop = a.scrollHeight;
-};
-window.onload = () => {
-  scrollDown(msgSection);
-};
-
 /*----- LOCAL STORAGE ---- */
 
 /* ---- checking if the local storige is empty ---- */
 
+////////// default values for local storage //////////
 let username = "Anonimous";
 let color = "#000000";
+let room = "#general";
 
-//checking for username
+////// checking for username
 localStorage.username
   ? (username = localStorage.username)
   : localStorage.setItem("username", username);
-//checking for color
+//////// checking for color
 localStorage.color
   ? (color = localStorage.color)
   : localStorage.setItem("color", color);
+//////// checking for room
+localStorage.room
+  ? (room = localStorage.room)
+  : localStorage.setItem("room", room);
 
 /* CREATING NEW CHATROOM AND CHATUI */
-let chatroom = new Chatroom("general", username);
+let chatroom = new Chatroom(localStorage.room, localStorage.username);
 
-let li1 = new ChatUi(ul);
 // IPIS DB kOLEKCIJE U MESSAGE POLJU!
+let messages = new ChatUi(ul);
 chatroom.getChat((d) => {
-  li1.templateLI(d);
+  messages.templateLI(d);
 });
+/*--- message section scroll bottom --- */
+let scrollDown = (a) => {
+  a.scrollTop = a.scrollHeight - a.clientHeight;
+};
+window.onload = () => scrollDown(messageSection);
 
 /* ----- SENDING MESSAGE --- */
 messageForm.addEventListener("submit", (e) => {
   e.preventDefault();
   let messageInputValue = messageInput.value;
-
   if (messageInputValue.trim().length != "") {
     chatroom
       .addChat(messageInputValue)
@@ -75,15 +76,16 @@ usernameForm.addEventListener("submit", (e) => {
     p.innerHTML = `Your new username is  <strong>* ${usernameInputValue} *<strong>`;
     usernameForm.insertBefore(p, usernameForm.firstChild);
     console.log(chat);
-    setInterval(() => {
+    setTimeout(() => {
       usernameForm.removeChild(p);
     }, 1000 * 3);
     usernameForm.reset();
+    location.reload();
   } else {
     p.innerHTML = "* Username must be between 2 and 10 caracters! *";
     usernameForm.insertBefore(p, usernameForm.firstChild);
-    console.log(chat);
-    setInterval(() => {
+
+    setTimeout(() => {
       usernameForm.removeChild(p);
     }, 1000 * 3);
     usernameForm.reset();
@@ -92,33 +94,29 @@ usernameForm.addEventListener("submit", (e) => {
 
 /* ---- Checking rooms ---  */
 
+// default room general
+
 chatRooms.addEventListener("click", (e) => {
   e.preventDefault();
-  let roomName = e.target.innerHTML;
-
   if (e.target.tagName === "BUTTON") {
     scrollDown(msgSection);
-    li1.clear();
+    messages.clear();
     chatroom.updateRoom(e.target.innerHTML);
     chatroom.getChat((d) => {
-      li1.templateLI(d);
+      messages.templateLI(d);
     });
   }
 });
 /*--- Checking Rooms in hamburger menu ---- */
 hamburgerMenu.addEventListener("click", (e) => {
   e.preventDefault();
-  let roomName = e.target.innerHTML;
-
   if (e.target.tagName === "BUTTON") {
     scrollDown(msgSection);
-    if (localStorage.room == roomName) {
-      li1.clear();
-      chatroom.updateRoom(e.target.innerHTML);
-      chatroom.getChat((d) => {
-        li1.templateLI(d);
-      });
-    }
+    messages.clear();
+    chatroom.updateRoom(e.target.innerHTML);
+    chatroom.getChat((d) => {
+      messages.templateLI(d);
+    });
   }
 });
 
@@ -159,3 +157,5 @@ colorForm.addEventListener("submit", (e) => {
     console.log(`nesto nije u redu`);
   }
 });
+
+/* --- Positioning the messages --- */

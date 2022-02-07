@@ -49,7 +49,6 @@ body{
     flex-wrap: wrap; 
 }
 #messageSection {
-
     background-color:rgb(180, 104, 28);
     color: black;
     border: 1px solid black; 
@@ -180,6 +179,15 @@ input[type="color"]{
     border-radius: 4px;
     background-color: rgb(180,104,28);
     
+}
+
+/* clases for messages */
+
+.right{
+    float: right;
+}
+.left{
+    float: left;
 }
 
 
