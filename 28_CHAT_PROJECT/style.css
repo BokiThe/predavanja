@@ -12,6 +12,23 @@ body{
     background-color:black;
     color:rgb(180, 104, 28);
 }
+/* SKROLL BAR */
+::-webkit-scrollbar{
+    width:5px;
+   
+}
+::-webkit-scrollbar-track{
+    background:transparent;
+}
+::-webkit-scrollbar-thumb{
+    background-color:gray;
+    border-radius: 2px;
+}
+::-webkit-scrollbar-thumb:hover{
+    background: black;
+    
+}
+/* CHAT CONTAINER */
 #chatContainer{
     height: 95vh;
     width:60vh;
@@ -26,54 +43,28 @@ body{
     display: flex;
     flex:1;
     flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-    height: 100vh;
+    justify-content: space-between;
+    height: 100%;
+
     
 }
 #headerSection{
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: space-around;
     height: 10%;
 }
 .dropdown {
     display: none;
     justify-self: center;
-
 }
+/* NAV BAR ROOMS */
 #chatRooms{
     display: flex;
     flex-direction: row;
     justify-content: center;
     flex-wrap: wrap; 
 }
-#messageSection {
-    background-color:rgb(180, 104, 28);
-    color: black;
-    border: 1px solid black; 
-    border-radius: 5px;
-    height: 25%;
-    width: 95%;
-    overflow: auto;
-}
-#messageSection li{
-    display: block;
-    background-color:black;
-    color: rgb(180, 104, 28);
-    border-bottom: 1px solid black ;
-    border-radius: 30px 30px 0 30px;
-    width: 55%;
-    padding: 5px;
-    margin: 5px;
-    position: relative;
-}
-#messageSection li span{
-    position: absolute;
-    bottom:0;
-    right: 0;
-}
-
 .btn {
     background-color: black;
     color:rgb(180, 104, 28);
@@ -95,19 +86,53 @@ body{
     color:black;
     box-shadow: 2px 2px 5px rgb(180, 104, 28);
 }
+/* MESSAGE SECTION */
+#messageSection {
+    background-color:rgb(180, 104, 28);
+    color: black;
+    height: 35%;
+    width: 100%;
+    overflow: auto;
+}
+#messageSection li{
+    display: block;
+    background-color:black;
+    color: rgb(180, 104, 28);
+    border-bottom: 1px solid black ;
+    border-radius: 30px 30px 0 30px;
+    width: 55%;
+    padding: 5px;
+    margin: 5px;
+    position: relative;
+}
+#messageSection li span{
+    position: absolute;
+    bottom:1px;
+    right: 1px;
+}
 
 
-#inputSection input[type="text"], input::placeholder {
+/* INPUT SECTION */
+
+#inputSection input[type="text"], input::placeholder,input[type="color"],input[type="datetime-local"]  {
     background-color:rgb(180, 104, 28);
     color:black;
     padding: 5px;
     border-radius: 5px;
+    width:45%;
+}
+#inputSection input{
+    display: inline-block;
+    width:45%;
+}
+#inputSection input[type="color"]{
+    width:48%;
+    padding: 1px;
 }
 
 .inputBtn{
     background-color: black;
     color:rgb(180, 104, 28);
-    width: 150px;
     padding: 5px;
     margin: 10px 5px;
     border-radius: 5px;
@@ -120,13 +145,14 @@ body{
     box-shadow: 2px 2px 5px rgb(180, 104, 28);
 }
 form{
-    margin: 10px 0;
-   align-items: center;
+    display:flex;
+    flex-direction: row;
+    flex:1;
+    flex-wrap: wrap;
+    justify-content:space-around;
+    align-items: center;
 }
-form div{
-    display: inline-block;
-    width: 45%;
-}
+
 textarea {
     background-color:rgb(180, 104, 28);
     color:black;
@@ -134,29 +160,10 @@ textarea {
     overflow-y: scroll;
     height: 17px;
     padding: 5px;
-    width:42%;
+    width: 45%;
 }
 textarea::placeholder{
     color:black;
-}
-::-webkit-scrollbar{
-    width:5px;
-   
-}
-::-webkit-scrollbar-track{
-    background:transparent;
-}
-::-webkit-scrollbar-thumb{
-    background-color:gray;
-    border-radius: 2px;
-}
-::-webkit-scrollbar-thumb:hover{
-    background: black;
-    
-}
-
-#inputSection input[type="submit"] {
-    margin:0px 0px;
 }
 
 #updateUsername{
@@ -172,24 +179,9 @@ textarea::placeholder{
     border-radius: 3px;
 }
 
-input[type="color"]{
-    width: 46%;
-    color: white;
-    height: 29px;
-    border-radius: 4px;
-    background-color: rgb(180,104,28);
-    
+#inputSection input[type="datetime-local"]{
+    width: 20%;
 }
-
-/* clases for messages */
-
-.right{
-    float: right;
-}
-.left{
-    float: left;
-}
-
 
 /*------ MEDIA QUERIES -------*/
 
@@ -225,15 +217,11 @@ input[type="color"]{
         display: none;
     }
     #messageSection{
-        height: 20%;
+        height: 35%;
     }
-    .btn{
+    
+    #inputSection input[type="text"],#inputSection input[type="datetime-local"],#inputSection input[type="color"],textarea, .btn, #inputSection input{
         width: 90%;
     }
-    #inputSection input[type="text"], textarea,input[type="color"], input[type="submit"] {
-        width: 90%;
-    }
-    #inputSection div {
-        width: 100%;
-    }
+   
 }

@@ -2,16 +2,25 @@ import Chatroom from "./chat.js";
 import ChatUi from "./ui.js";
 
 /*---DOM ELEMENTS---  */
+//username elements
 let usernameForm = document.getElementById("usernameForm");
+let usernameInput = document.getElementById("username");
+// message elements
 let messageForm = document.getElementById("messageForm");
 let messageInput = document.getElementById("message");
-let usernameInput = document.getElementById("username");
+// nav section elements
 let chatRooms = document.getElementById("chatRooms");
+let hamburgerMenu = document.getElementById("hamburgerMenu");
+//message section elements
 let msgSection = document.getElementById("messageSection");
+let ul = document.querySelector("ul");
+//update color elements
 let colorForm = document.getElementById("colorForm");
 let colorPick = document.getElementById("colorPick");
-let ul = document.querySelector("ul");
-let hamburgerMenu = document.getElementById("hamburgerMenu");
+// filter elements
+let toDate = document.getElementById("toDate");
+let fromDate = document.getElementById("fromDate");
+let filterForm = document.getElementById("filter");
 
 /*----- LOCAL STORAGE ---- */
 
@@ -80,7 +89,9 @@ usernameForm.addEventListener("submit", (e) => {
       usernameForm.removeChild(p);
     }, 1000 * 3);
     usernameForm.reset();
-    location.reload();
+    setTimeout(() => {
+      location.reload();
+    }, 1000 * 3);
   } else {
     p.innerHTML = "* Username must be between 2 and 10 caracters! *";
     usernameForm.insertBefore(p, usernameForm.firstChild);
@@ -101,6 +112,7 @@ chatRooms.addEventListener("click", (e) => {
   if (e.target.tagName === "BUTTON") {
     scrollDown(msgSection);
     messages.clear();
+    localStorage.room = e.target.innerHTML;
     chatroom.updateRoom(e.target.innerHTML);
     chatroom.getChat((d) => {
       messages.templateLI(d);
@@ -113,6 +125,7 @@ hamburgerMenu.addEventListener("click", (e) => {
   if (e.target.tagName === "BUTTON") {
     scrollDown(msgSection);
     messages.clear();
+    localStorage.room = e.target.innerHTML;
     chatroom.updateRoom(e.target.innerHTML);
     chatroom.getChat((d) => {
       messages.templateLI(d);
@@ -158,4 +171,39 @@ colorForm.addEventListener("submit", (e) => {
   }
 });
 
-/* --- Positioning the messages --- */
+/* --- Filter Messages --- */
+
+filterForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+  let fromDateValue = fromDate.value;
+  fromDateValue = new Date(fromDateValue);
+  fromDateValue = firebase.firestore.Timestamp.fromDate(fromDateValue);
+
+  let toDateValue = toDate.value;
+  toDateValue = new Date(toDateValue);
+  toDateValue = firebase.firestore.Timestamp.fromDate(toDateValue);
+
+  let chats = db.collection("chats");
+
+  chats
+    .where("created_at", ">=", fromDateValue)
+    .where("created_at", "<=", toDateValue)
+    .where("room", "==", localStorage.room)
+    .orderBy("created_at")
+    .get()
+    .then((snapshot) => {
+      if (!snapshot.empty) {
+        messages.clear();
+        let docs = snapshot.docs;
+        docs.forEach((doc) => {
+          messages.templateLI(doc);
+        });
+        filterForm.reset();
+      } else {
+        alert(`No messages`);
+      }
+    })
+    .catch((err) => {
+      console.log(`ne postoji dokument ciji je id `, err);
+    });
+});

@@ -164,8 +164,8 @@ db.collection("tasks")
   /*--------- Su prioritetni -----*/
   //.where("priority", "==", false)
   /*--------- Treba da se izvrše u tekućoj godini --------*/
-  //.where("dueDate", ">", pocetakGodine)
-  //.where("dueDate", "<", krajGodine)
+  .where("dueDate", ">", pocetakGodine)
+  .where("dueDate", "<", krajGodine)
 
   .get()
   .then((snapshot) => {
