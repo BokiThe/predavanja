@@ -110,6 +110,10 @@ body{
     bottom:1px;
     right: 1px;
 }
+#messageSection li span:hover{
+    cursor:pointer;
+}
+
 
 
 /* INPUT SECTION */

@@ -22,11 +22,11 @@ class ChatUi {
     min = String(min).padStart(2, "0");
     let today = new Date();
     if (
-      day === String(today.getDate()).padStart(2, "0") &&
-      month === String(today.getMonth()).padStart(2, "0") &&
-      year === String(today.getFullYear())
+      day == String(today.getDate()).padStart(2, "0") &&
+      month == String(today.getMonth() + 1).padStart(2, "0") &&
+      year == String(today.getFullYear())
     ) {
-      return `${hour}:${min}`;
+      return `<i>Today at</i> ${hour}:${min}`;
     } else {
       return `${day}.${month}.${year} - ${hour}:${min}`;
     }

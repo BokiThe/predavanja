@@ -11,6 +11,7 @@ let messageInput = document.getElementById("message");
 // nav section elements
 let chatRooms = document.getElementById("chatRooms");
 let hamburgerMenu = document.getElementById("hamburgerMenu");
+let btns = document.querySelectorAll(".btn");
 //message section elements
 let msgSection = document.getElementById("messageSection");
 let ul = document.querySelector("ul");
@@ -56,7 +57,7 @@ chatroom.getChat((d) => {
 let scrollDown = (a) => {
   a.scrollTop = a.scrollHeight - a.clientHeight;
 };
-window.onload = () => scrollDown(messageSection);
+setTimeout(() => scrollDown(msgSection), 500);
 
 /* ----- SENDING MESSAGE --- */
 messageForm.addEventListener("submit", (e) => {
