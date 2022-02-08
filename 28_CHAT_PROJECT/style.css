@@ -74,6 +74,17 @@ body{
     border-radius: 5px;
 
 }
+.selected{
+    cursor: pointer;
+    background-color:rgb(180, 104, 28);
+    color:black;
+    box-shadow: 2px 2px 5px rgb(180, 104, 28);
+    width: 150px;
+    padding: 5px;
+    margin: 10px 5px;
+    border-radius: 5px;
+    
+}
 .btn:hover{
     cursor: pointer;
     background-color:rgb(180, 104, 28);

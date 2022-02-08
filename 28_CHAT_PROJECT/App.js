@@ -111,9 +111,21 @@ usernameForm.addEventListener("submit", (e) => {
 chatRooms.addEventListener("click", (e) => {
   e.preventDefault();
   if (e.target.tagName === "BUTTON") {
+    localStorage.room = e.target.innerHTML;
+    setTimeout(() => {
+      scrollDown(msgSection);
+    }, 500);
+    btns.forEach((btn) => {
+      if (localStorage.room == btn.innerHTML) {
+        btn.classList.toggle("selected");
+        btn.style.border = "1px solid orange";
+      } else {
+        btn.classList.remove("selected");
+        btn.style.border = "none";
+      }
+    });
     scrollDown(msgSection);
     messages.clear();
-    localStorage.room = e.target.innerHTML;
     chatroom.updateRoom(e.target.innerHTML);
     chatroom.getChat((d) => {
       messages.templateLI(d);
@@ -124,7 +136,9 @@ chatRooms.addEventListener("click", (e) => {
 hamburgerMenu.addEventListener("click", (e) => {
   e.preventDefault();
   if (e.target.tagName === "BUTTON") {
-    scrollDown(msgSection);
+    setTimeout(() => {
+      scrollDown(msgSection);
+    }, 500);
     messages.clear();
     localStorage.room = e.target.innerHTML;
     chatroom.updateRoom(e.target.innerHTML);
@@ -164,7 +178,7 @@ colorForm.addEventListener("submit", (e) => {
 
   if (localStorage.color != colorPickValue) {
     localStorage.color = colorPickValue;
-    setTimeout(() => {
+    setinterval(() => {
       document.body.style.background = localStorage.color;
     }, 500);
   } else {
